@@ -1,11 +1,24 @@
-import React from 'react'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MainLayout from "./components/layout/MainLayout";
+import Home from "./pages/Home";
+import Script from "./pages/Script";
+
 
 const App = () => {
-  return (
-    <div className='text-green-500 font-bold text-center text-3xl py-5'>
-      Motion X Frontend
-    </div>
-  )
-}
+	return (
+		<Router>
+			<Routes>
+				<Route path="/" element = {<MainLayout />}>
+					{/* nested routes  */}
+					<Route index element = {<Home />} />
+					<Route path = "script" element = {<Script />} />
 
-export default App
+				</Route>
+			</Routes>
+		</Router>
+
+	);
+};
+
+export default App;
