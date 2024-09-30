@@ -42,3 +42,13 @@ body{
 .small_card_des {
     @apply text-[11px] font-normal
 }
+
+.active_menu_item {
+    @apply bg-gray-300 font-bold
+
+}
+
+.active_link {
+    @apply text-black font-bold
+
+}

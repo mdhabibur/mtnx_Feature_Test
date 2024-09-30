@@ -1,5 +1,6 @@
 import React from 'react'
 import ProjectCard from '../components/home/ProjectCard'
+
 import instagram_reels from "../assets/images/homepage/createProjects/Instagram_reels.svg"
 import youtube_shorts from "../assets/images/homepage/createProjects/youtube_shorts.svg"
 import linked_in_shorts from "../assets/images/homepage/createProjects/linkedIn_shorts.svg"
@@ -16,9 +17,6 @@ import project_analyse from "../assets/images/homepage/projectInsights/analyse.s
 import project_compare from "../assets/images/homepage/projectInsights/compare.svg"
 import project_running_posts from "../assets/images/homepage/projectInsights/running_posts.svg"
 import project_dilution from "../assets/images/homepage/projectInsights/dilution.svg"
-
-
-
 
 
 
@@ -119,7 +117,7 @@ const Home = () => {
 
                 <div className=' flex flex-col sm:flex-row sm:w-1/2 md:w-3/4 lg:w-full flex-wrap gap-5 items-start justify-start'>
 
-                {createProjectData.map((item, index) => <ProjectCard key={item.id} item = {item} />)}
+                {createProjectData.map((item, index) => <ProjectCard key={item.id} item = {item} category={{ name: "project_start" }} />)}
                     
 
                 </div>
@@ -143,7 +141,7 @@ const Home = () => {
 
                 <div className='flex flex-col sm:flex-row sm:w-1/2 md:w-3/4 lg:w-full flex-wrap gap-5 items-start justify-start'>
 
-                {projectInsightsData.map((item, index) => <ProjectCard key={item.id} item = {item} />)}
+                {projectInsightsData.map((item, index) => <ProjectCard key={item.id} item = {item} category={{ name: "project_analyze" }} />)}
 
 
                 </div>

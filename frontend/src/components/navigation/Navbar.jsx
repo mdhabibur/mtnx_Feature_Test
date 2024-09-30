@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/images/header/logo.svg";
 import profile from "../../assets/images/header/profile.svg"
 import { IoIosNotifications } from "react-icons/io";
@@ -10,6 +10,7 @@ const Navbar = () => {
 
 
 	const [isSticky, setSticky] = useState(false);
+	const location = useLocation()
 
 	//fixed sticky navigation bar
 	useEffect(() => {
@@ -34,16 +35,16 @@ const Navbar = () => {
 
 	const navItems = (
 		<>
-			<li>
-				<Link to="/" className="font-semibold hover:-translate-x-1 transition-all duration-200">Home</Link>
+			<li className="pr-2">
+				<Link to="/" className={` font-semibold hover:-translate-x-1 transition-all duration-200 ${location.pathname === "/" ? "active_menu_item" : ""}`}>Home</Link>
 			</li>
 	
-			<li>
-				<Link to="/docs" className="font-semibold hover:-translate-x-1 transition-all duration-200">Docs</Link>
+			<li className="pr-2 ">
+				<Link to="/docs" className={` font-semibold hover:-translate-x-1 transition-all duration-200 ${location.pathname === "/docs" ? "active_menu_item" : ""}`}>Docs</Link>
 			</li>
 	
-			<li>
-				<Link to="/collaborate" className="font-semibold hover:-translate-x-1 transition-all duration-200">Collaborate</Link>
+			<li className="pr-2">
+				<Link to="/collaborate" className={`font-semibold hover:-translate-x-1 transition-all duration-200 ${location.pathname === "/collaborate" ? "active_menu_item" : ""}`}>Collaborate</Link>
 			</li>
 		</>
 	);

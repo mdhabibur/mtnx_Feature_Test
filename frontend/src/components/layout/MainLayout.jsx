@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../navigation/Navbar";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import home from "../../assets/images/sidebar/home.svg"
 import script from "../../assets/images/sidebar/script.svg"
 import ideate from "../../assets/images/sidebar/ideate.svg"
@@ -11,6 +11,9 @@ import analytics from "../../assets/images/sidebar/analytics.svg"
 
 
 const MainLayout = () => {
+
+    const location = useLocation()
+
 	return (
 		<div>
 			<Navbar />
@@ -21,21 +24,21 @@ const MainLayout = () => {
                 <ul className="space-y-1 py-6">
 
                     <li>
-                        <a href="/" className="flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-1 transition-all duration-200">
+                        <a href="/" className={`flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/' ? "active_menu_item": ""}`}>
                             <img src={home} className="w-5 h-5" alt="" />
                             <span className="font-semibold hidden sm:block">Home</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="/script" className="flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-1 transition-all duration-200 ">
+                        <a href="/script" className={`flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/script' ? "active_menu_item": ""}`}>
                             <img src={script} className="w-5 h-5" alt="" />
                             <span className="font-semibold hidden sm:block">Script</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="/ideate" className="flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-1 transition-all duration-200 ">
+                        <a href="/ideate" className={`flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/ideate' ? "active_menu_item": ""}`}>
                             <img src={ideate} className="w-5 h-5" alt="" />
                             <span className="font-semibold hidden sm:block">Ideate</span>
                         </a>
@@ -43,7 +46,7 @@ const MainLayout = () => {
 
 
                     <li>
-                        <a href="/motionx_ai" className="flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-1 transition-all duration-200">
+                        <a href="/motionx_ai" className={`flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/motionx_ai' ? "active_menu_item": ""}`}>
                             <img src={motionx_ai} className="w-5 h-5" alt="" />
                             <span className="font-semibold hidden sm:block">MotionX AI</span>
                         </a>
@@ -51,7 +54,7 @@ const MainLayout = () => {
 
 
                     <li>
-                        <a href="/monetization" className="flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-1 transition-all duration-200 ">
+                        <a href="/monetization" className={`flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/monetization' ? "active_menu_item": ""}`}>
                             <img src={monetization} className="w-5 h-5" alt="" />
                             <span className="font-semibold hidden sm:block">Monetization</span>
                         </a>
@@ -59,7 +62,7 @@ const MainLayout = () => {
 
 
                     <li>
-                        <a href="/analytics" className="flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-1 transition-all duration-200 ">
+                        <a href="/analytics" className={`flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/analytics' ? "active_menu_item": ""}`}>
                             <img src={analytics} className="w-5 h-5" alt="" />
                             <span className="font-semibold hidden sm:block">Analytics</span>
                         </a>
