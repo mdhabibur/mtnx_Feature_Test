@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "../navigation/Navbar";
 import { Outlet } from "react-router-dom";
-import Sidebar from "../navigation/Sidebar";
 import home from "../../assets/images/sidebar/home.svg"
 import script from "../../assets/images/sidebar/script.svg"
 import ideate from "../../assets/images/sidebar/ideate.svg"

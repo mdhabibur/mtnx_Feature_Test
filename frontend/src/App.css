@@ -23,3 +23,7 @@ body{
 .my_h4 {
     @apply text-sm md:text-xl font-bold
 }
+
+.my_h5 {
+    @apply text-xs md:text-sm font-bold
+}
