@@ -36,6 +36,9 @@ body{
     @apply text-xs font-normal
 }
 
+.small_card_sub_title2 {
+    @apply text-xs font-normal text-black
+}
 .small_card_des {
     @apply text-[11px] font-normal
 }
