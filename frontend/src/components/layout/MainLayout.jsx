@@ -24,21 +24,21 @@ const MainLayout = () => {
                 <ul className="space-y-1 py-6">
 
                     <li>
-                        <Link href="/" className={`flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/' ? "active_menu_item": ""}`}>
+                        <Link to="/" className={`flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/' ? "active_menu_item": ""}`}>
                             <img src={home} className="w-5 h-5" alt="" />
                             <span className="font-semibold hidden sm:block">Home</span>
                         </Link>
                     </li>
 
                     <li>
-                        <Link href="/script" className={`flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/script' ? "active_menu_item": ""}`}>
+                        <Link to="/script" className={`flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/script' ? "active_menu_item": ""}`}>
                             <img src={script} className="w-5 h-5" alt="" />
                             <span className="font-semibold hidden sm:block">Script</span>
                         </Link>
                     </li>
 
                     <li>
-                        <Link href="/ideate" className={`flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/ideate' ? "active_menu_item": ""}`}>
+                        <Link to="/ideate" className={`flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/ideate' ? "active_menu_item": ""}`}>
                             <img src={ideate} className="w-5 h-5" alt="" />
                             <span className="font-semibold hidden sm:block">Ideate</span>
                         </Link>
@@ -46,7 +46,7 @@ const MainLayout = () => {
 
 
                     <li>
-                        <Link href="/motionx_ai" className={`flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/motionx_ai' ? "active_menu_item": ""}`}>
+                        <Link to="/motionx_ai" className={`flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/motionx_ai' ? "active_menu_item": ""}`}>
                             <img src={motionx_ai} className="w-5 h-5" alt="" />
                             <span className="font-semibold hidden sm:block">MotionX AI</span>
                         </Link>
@@ -54,7 +54,7 @@ const MainLayout = () => {
 
 
                     <li>
-                        <Link href="/monetization" className={`flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/monetization' ? "active_menu_item": ""}`}>
+                        <Link to="/monetization" className={`flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/monetization' ? "active_menu_item": ""}`}>
                             <img src={monetization} className="w-5 h-5" alt="" />
                             <span className="font-semibold hidden sm:block">Monetization</span>
                         </Link>
@@ -62,7 +62,7 @@ const MainLayout = () => {
 
 
                     <li>
-                        <Link href="/analytics" className={`flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/analytics' ? "active_menu_item": ""}`}>
+                        <Link to="/analytics" className={`flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/analytics' ? "active_menu_item": ""}`}>
                             <img src={analytics} className="w-5 h-5" alt="" />
                             <span className="font-semibold hidden sm:block">Analytics</span>
                         </Link>
