@@ -108,7 +108,7 @@ const Home = () => {
 
             <div className="second_div flex flex-col justify-start gap-3 my-5">
 
-                <div className='mb-4 my-3 mb-5'>
+                <div className='my-3 mb-5'>
                 <h2 className='my_h2 mb-2'>All your video projects at one place</h2>
 
                 <p className='text-[13px] w-2/3 mb-4'>From onboarding to liquidity events, Carta's platform makes it easy to manage your team's equity. Invite your team to get started.</p>
@@ -183,7 +183,7 @@ const Home = () => {
 
                 <div className='flex flex-col md:flex-row md:w-[90%] lg:w-full flex-wrap  gap-5 items-start'>
 
-                    <div className='w-[438px] flex flex-col items-start gap-5 border rounded-lg shadow-md hover:scale-105 transition-all duration-300 cursor-pointer p-3'>
+                    <div className='w-[438px] flex flex-col items-start gap-5 border rounded-lg shadow-md hover:scale-90 transition-all duration-300 cursor-pointer p-3'>
                         <img className='w-full' src={start_project} alt="" />
 
                         <div className='space-y-1 py-3'>
@@ -196,7 +196,7 @@ const Home = () => {
 
 
 
-                    <div className='w-[438px] flex flex-col items-start gap-5 border rounded-lg shadow-md hover:scale-105 transition-all duration-300 cursor-pointer p-3'>
+                    <div className='w-[438px] flex flex-col items-start gap-5 border rounded-lg shadow-md hover:scale-90 transition-all duration-300 cursor-pointer p-3'>
                         <img className='w-full' src={connect_social} alt="" />
 
                         <div className='space-y-1 py-3'>

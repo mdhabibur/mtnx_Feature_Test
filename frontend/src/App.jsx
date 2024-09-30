@@ -8,6 +8,8 @@ import Ideate from "./pages/Ideate";
 import MontionXAI from "./pages/MontionXAI";
 import Monetization from "./pages/Monetization";
 import Analytics from "./pages/Analytics";
+import Docs from "./pages/Docs";
+import Collaborate from "./pages/Collaborate";
 
 
 const App = () => {
@@ -17,6 +19,8 @@ const App = () => {
 				<Route path="/" element = {<MainLayout />}>
 					{/* nested routes  */}
 					<Route index element = {<Home />} />
+					<Route path="docs" element = {<Docs />} />
+					<Route path="collaborate" element = {<Collaborate />} />
 					<Route path = "script" element = {<Script />} />
 					<Route path = "ideate" element = {<Ideate />} />
 					<Route path = "motionx_ai" element = {<MontionXAI />} />

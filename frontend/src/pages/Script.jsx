@@ -13,7 +13,7 @@ const Script = () => {
 
     <div className='my_container py-3 my-3 flex flex-col gap-5  '> 
     
-    <form className='max-w-md max-h-screen md:max-w-lg flex flex-col gap-2 border rounded-lg shadow-lg px-10 pb-3 pt-1 mx-3 md:mx-6'>
+    <form className='max-w-md max-h-screen md:max-w-lg flex flex-col gap-2 border rounded-[12px] shadow-lg px-10 pb-3 pt-1 mx-3 md:mx-6'>
 
     <h2 className='my_h2 mb-2 mt-2'>Create a new script</h2>
 
@@ -88,7 +88,7 @@ const Script = () => {
     </div>
 
     <div className="text-end">
-        <button type='submit' className=' bg-black text-white rounded-lg px-3 py-2 my-3 text-xs '>Save</button>
+        <button type='submit' className=' bg-black text-white rounded-[10px] px-5 py-2 my-3 text-xs '>Save</button>
     </div>
 
     </form>

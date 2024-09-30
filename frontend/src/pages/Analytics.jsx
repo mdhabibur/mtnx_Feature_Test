@@ -106,8 +106,10 @@ const Analytics = () => {
   return (
     <div className='my_container py-3 my-3 flex flex-col gap-5'>
 
-        <h4 className='my_h4'> Analytics</h4>
-        <p className='text-xs'>Short-form video content</p>
+        <div>
+        <h3 className='my_h3'> Analytics</h3>
+        <p className='text-xs text-gray-500 mt-2'>Short-form video content</p>
+        </div>
 
         <div className='flex flex-row flex-wrap gap-3 items-start  w-[90%]'>
 
@@ -120,25 +122,25 @@ const Analytics = () => {
 
         <div className='flex flex-row flex-wrap gap-5 items-start w-[90%] cursor-pointer'>
 
-            <p className='font-bold border-b-2 text-xs'>TikTok</p>
-            <p className='border-b-2 text-xs'>Instagram</p>
-            <p className='border-b-2 text-xs'>YouTube</p>
+            <p className='font-bold border-b-2 text-xs hover:translate-x-1 transition-all duration-200'>TikTok</p>
+            <p className='border-b-2 text-xs hover:translate-x-1 transition-all duration-200'>Instagram</p>
+            <p className='border-b-2 text-xs hover:translate-x-1 transition-all duration-200'>YouTube</p>
 
         </div>
 
         <div className='flex flex-col md:flex-row flex-wrap gap-5 items-start w-[90%] lg:max-w-3xl'>
 
-            <div className='md:w-[340px] flex flex-col gap-3 border rounded-lg p-2 cursor-pointer'>
-                <p className='text-xs'>Total views</p>
+            <div className='md:w-[340px] flex flex-col gap-2 border rounded-lg p-2 cursor-pointer'>
+                <p className='text-xs font-bold'>Total views</p>
                 <p className='text-sm font-bold'>5.1M</p>
-                <p className='text-xs'>+3%</p>
+                <p className='text-xs text-green-800'>+3%</p>
                 <Chart chartData={totalViewChartData} />
             </div>
 
-            <div className='md:w-[340px] flex flex-col gap-3 border rounded-lg p-2 cursor-pointer'>
-                <p className='text-xs'>Total watch time</p>
+            <div className='md:w-[340px] flex flex-col gap-2 border rounded-lg p-2 cursor-pointer'>
+                <p className='text-xs font-bold'>Total watch time</p>
                 <p className='text-sm font-bold'>2.3M hours</p>
-                <p className='text-xs'>+2%</p>
+                <p className='text-xs text-green-800'>+2%</p>
                 <Chart chartData={totalWatchTimeChartData} />
             </div>
 
@@ -149,7 +151,7 @@ const Analytics = () => {
 
 
         {/* Top videos  */}
-        <h5 className='my_h5'> Top videos</h5>
+        <h4 className='my_h4 mt-4'> Top videos</h4>
 
 
         
@@ -160,7 +162,7 @@ const Analytics = () => {
         </div>
 
         {/* Collaboration  */}
-        <h5 className='my_h5'> Collaboration requests</h5>
+        <h4 className='my_h4 mt-4'> Collaboration requests</h4>
 
         <div className='max-w-[90%] flex flex-col items-start justify-start gap-2 cursor-pointer '>
 

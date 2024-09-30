@@ -21,21 +21,21 @@ const MainLayout = () => {
                 <ul className="space-y-1 py-6">
 
                     <li>
-                        <a href="/" className="flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg ">
+                        <a href="/" className="flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-1 transition-all duration-200">
                             <img src={home} className="w-5 h-5" alt="" />
                             <span className="font-semibold hidden sm:block">Home</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="/script" className="flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg ">
+                        <a href="/script" className="flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-1 transition-all duration-200 ">
                             <img src={script} className="w-5 h-5" alt="" />
                             <span className="font-semibold hidden sm:block">Script</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="/ideate" className="flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg ">
+                        <a href="/ideate" className="flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-1 transition-all duration-200 ">
                             <img src={ideate} className="w-5 h-5" alt="" />
                             <span className="font-semibold hidden sm:block">Ideate</span>
                         </a>
@@ -43,7 +43,7 @@ const MainLayout = () => {
 
 
                     <li>
-                        <a href="/motionx_ai" className="flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg">
+                        <a href="/motionx_ai" className="flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-1 transition-all duration-200">
                             <img src={motionx_ai} className="w-5 h-5" alt="" />
                             <span className="font-semibold hidden sm:block">MotionX AI</span>
                         </a>
@@ -51,7 +51,7 @@ const MainLayout = () => {
 
 
                     <li>
-                        <a href="/monetization" className="flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg ">
+                        <a href="/monetization" className="flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-1 transition-all duration-200 ">
                             <img src={monetization} className="w-5 h-5" alt="" />
                             <span className="font-semibold hidden sm:block">Monetization</span>
                         </a>
@@ -59,7 +59,7 @@ const MainLayout = () => {
 
 
                     <li>
-                        <a href="/analytics" className="flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg ">
+                        <a href="/analytics" className="flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-1 transition-all duration-200 ">
                             <img src={analytics} className="w-5 h-5" alt="" />
                             <span className="font-semibold hidden sm:block">Analytics</span>
                         </a>

@@ -35,15 +35,15 @@ const Navbar = () => {
 	const navItems = (
 		<>
 			<li>
-				<Link to="/" className="font-semibold">Home</Link>
+				<Link to="/" className="font-semibold hover:-translate-x-1 transition-all duration-200">Home</Link>
 			</li>
 	
 			<li>
-				<Link to="/docs" className="font-semibold">Docs</Link>
+				<Link to="/docs" className="font-semibold hover:-translate-x-1 transition-all duration-200">Docs</Link>
 			</li>
 	
 			<li>
-				<Link to="/collaborate" className="font-semibold">Collaborate</Link>
+				<Link to="/collaborate" className="font-semibold hover:-translate-x-1 transition-all duration-200">Collaborate</Link>
 			</li>
 		</>
 	);
@@ -108,7 +108,7 @@ const Navbar = () => {
 					<IoIosNotifications className="w-6 h-6" />
 					</button>
 
-					<button className="bg bg-gray-200 w-8 h-8 rounded-full items-center justify-center">
+					<button className="bg bg-gray-200 w-8 h-8 rounded-full items-center justify-center hover:scale-105 transition-all duration-200">
 					<img className="w-8 h-8" src={profile} alt="logo" />
 					</button>
 
