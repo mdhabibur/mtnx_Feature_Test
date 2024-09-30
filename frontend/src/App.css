@@ -21,7 +21,7 @@ body{
 }
 
 .my_h4 {
-    @apply text-sm md:text-xl font-bold
+    @apply text-xs md:text-xl font-bold
 }
 
 .my_h5 {
