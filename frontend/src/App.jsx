@@ -10,6 +10,9 @@ import Monetization from "./pages/Monetization";
 import Analytics from "./pages/Analytics";
 import Docs from "./pages/Docs";
 import Collaborate from "./pages/Collaborate";
+import Trending from "./components/ideate/Trending";
+import Insights from "./components/ideate/Insights";
+import Inspiration from "./components/ideate/Inspiration";
 
 
 const App = () => {
@@ -22,7 +25,16 @@ const App = () => {
 					<Route path="docs" element = {<Docs />} />
 					<Route path="collaborate" element = {<Collaborate />} />
 					<Route path = "script" element = {<Script />} />
-					<Route path = "ideate" element = {<Ideate />} />
+
+					<Route path = "ideate" element = {<Ideate />} >
+
+						<Route index element = {<Trending />} />
+						<Route path="trending" element = {<Trending />} />
+						<Route path="insights" element = {<Insights />} />
+						<Route path="inspiration" element = {<Inspiration />} />
+
+					</Route>
+
 					<Route path = "motionx_ai" element = {<MontionXAI />} />
 					<Route path = "monetization" element = {<Monetization />} />
 					<Route path = "analytics" element = {<Analytics />} />

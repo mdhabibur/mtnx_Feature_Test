@@ -122,9 +122,9 @@ const Analytics = () => {
 
         <div className='flex flex-row flex-wrap gap-5 items-start w-[90%] cursor-pointer'>
 
-            <p className='font-bold border-b-2 text-xs hover:translate-x-1 transition-all duration-200'>TikTok</p>
-            <p className='border-b-2 text-xs hover:translate-x-1 transition-all duration-200'>Instagram</p>
-            <p className='border-b-2 text-xs hover:translate-x-1 transition-all duration-200'>YouTube</p>
+            <p className='font-bold border-b-2 text-xs pb-1 hover:translate-x-1 transition-all duration-200'>TikTok</p>
+            <p className='border-b-2 text-xs pb-1 hover:translate-x-1 transition-all duration-200'>Instagram</p>
+            <p className='border-b-2 text-xs pb-1 hover:translate-x-1 transition-all duration-200'>YouTube</p>
 
         </div>
 
@@ -144,17 +144,12 @@ const Analytics = () => {
                 <Chart chartData={totalWatchTimeChartData} />
             </div>
 
-
-
-
         </div>
 
 
         {/* Top videos  */}
         <h4 className='my_h4 mt-4'> Top videos</h4>
 
-
-        
 
         <div className='max-w-[90%] flex flex-col items-start justify-start gap-2 cursor-pointer '>
 
