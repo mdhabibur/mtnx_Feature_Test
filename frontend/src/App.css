@@ -2,6 +2,7 @@
 
 /* manrope font  */
 
+
 body{
     font-family: "Manrope", sans-serif;
 }
@@ -51,4 +52,22 @@ body{
 .active_link {
     @apply text-black font-bold
 
+}
+
+/* .gradient-text-bp {
+	background-image: linear-gradient(
+		to right,
+		#A6C8F2,
+		#D99A9A
+	); 
+	-webkit-background-clip: text; 
+	-webkit-text-fill-color: transparent;
+} */
+
+.my-gradient-text-btn {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#A6C8F2] to-[#dc8080] font-semibold text-[14px]
+}
+
+.my-gradient-text-logo {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#A6C8F2] to-[#D99A9A] font-extrabold
 }

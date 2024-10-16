@@ -3,9 +3,7 @@ import ComingSoonPage from '../components/layout/ComingSoonPage'
 
 const Collaborate = () => {
   return (
-    <div>
-        <ComingSoonPage />
-    </div>
+    <ComingSoonPage />
   )
 }
 

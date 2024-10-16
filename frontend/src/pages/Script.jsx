@@ -11,9 +11,9 @@ import { FaChevronDown } from "react-icons/fa6";
 const Script = () => {
   return (
 
-    <div className='my_container py-3 my-3 flex flex-col gap-5  '> 
+    <div className='my_container py-3 my-3 flex flex-col gap-5  items-center '> 
     
-    <form className='max-w-md max-h-screen md:max-w-lg flex flex-col gap-2 border rounded-[12px] shadow-lg px-10 pb-3 pt-1 mx-3 md:mx-6'>
+    <form className='max-w-md max-h-screen md:max-w-lg flex flex-col gap-2 border rounded-[12px] shadow-lg px-10 pb-3 pt-1 mx-3 md:mx-6 '>
 
     <h2 className='my_h2 mb-2 mt-2'>Create a new script</h2>
 

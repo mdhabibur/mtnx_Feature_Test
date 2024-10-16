@@ -111,7 +111,16 @@ const Home = () => {
 
                 <p className='text-[13px] w-2/3 mb-4'>From onboarding to liquidity events, Carta's platform makes it easy to manage your team's equity. Invite your team to get started.</p>
 
-                <button className='border bg-black text-white px-4 py-2 rounded-full text-xs'>Create a Project</button>
+
+                <button className="border bg-black px-4 py-2 rounded-full text-xs">
+                    <span className="my-gradient-text-btn">
+                        Create a Project
+                    </span>
+                </button>
+
+                
+
+
                 </div>
 
 
@@ -135,7 +144,11 @@ const Home = () => {
                 <p className='text-[13px] w-2/3 mb-4'>Quickly understand  how your video is doing on all the platforms with our new dashboard insights. Track your content virality strength, and more in real time. 
                 </p>
 
-                <button className='border bg-black text-white px-4 py-2 rounded-full text-xs'>Explore Insights</button>
+                <button className='border bg-black text-white px-4 py-2 rounded-full text-xs'>
+                    <span className="my-gradient-text-btn">
+                        Explore Insights
+                    </span>
+                    </button>
                 </div>
 
 

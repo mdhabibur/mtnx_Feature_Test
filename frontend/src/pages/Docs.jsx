@@ -3,9 +3,7 @@ import ComingSoonPage from '../components/layout/ComingSoonPage'
 
 const Docs = () => {
   return (
-    <div>
-        <ComingSoonPage />
-    </div>
+    <ComingSoonPage />
   )
 }
 

@@ -89,7 +89,7 @@ const Navbar = () => {
 						className="text-xl hidden sm:flex items-center justify-center gap-2 "
 					>
 						<img className="w-6 h-6" src={logo} alt="logo" />
-						<span className="font-bold">MotionX</span>
+						<span className="font-extrabold my-gradient-text-logo">MotionX</span>
 					</Link>
 
 
