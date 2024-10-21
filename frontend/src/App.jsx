@@ -13,6 +13,9 @@ import Collaborate from "./pages/Collaborate";
 import Trending from "./components/ideate/Trending";
 import Insights from "./components/ideate/Insights";
 import Inspiration from "./components/ideate/Inspiration";
+import Landing from "./pages/Landing";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
 
 
 const App = () => {
@@ -40,6 +43,12 @@ const App = () => {
 					<Route path = "analytics" element = {<Analytics />} />
 
 				</Route>
+
+				<Route path="/landing" element={<Landing/>} />
+				<Route path="/signup" element={<SignUp/>} />
+				<Route path="/signin" element={<SignIn/>} />
+
+
 			</Routes>
 		</Router>
 
