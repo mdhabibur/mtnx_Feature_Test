@@ -16,11 +16,13 @@ import Inspiration from "./components/ideate/Inspiration";
 import Landing from "./pages/Landing";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
+import PublicNavbar from "./components/navigation/PublicNavbar";
 
 
 const App = () => {
 	return (
 		<Router>
+			<PublicNavbar />
 			<Routes>
 				<Route path="/" element = {<MainLayout />}>
 					{/* nested routes  */}
