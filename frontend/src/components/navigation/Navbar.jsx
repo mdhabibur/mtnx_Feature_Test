@@ -36,7 +36,7 @@ const Navbar = () => {
 	const navItems = (
 		<>
 			<li className="pr-2">
-				<Link to="/" className={` font-semibold hover:-translate-x-1 transition-all duration-200 ${location.pathname === "/" ? "active_menu_item" : ""}`}>Home</Link>
+				<Link to="/dashboard" className={` font-semibold hover:-translate-x-1 transition-all duration-200 ${location.pathname === "/" ? "active_menu_item" : ""}`}>Home</Link>
 			</li>
 	
 			<li className="pr-2 ">
@@ -85,7 +85,7 @@ const Navbar = () => {
 					</div>
 
 					<Link
-						to="/"
+						to="/dashboard"
 						className="text-xl hidden sm:flex items-center justify-center gap-2 "
 					>
 						<img className="w-6 h-6" src={logo} alt="logo" />

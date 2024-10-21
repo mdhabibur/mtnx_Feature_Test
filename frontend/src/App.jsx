@@ -25,7 +25,14 @@ const App = () => {
 			<Routes>
 				<Route path="/" element = {<MainLayout />}>
 					{/* nested routes  */}
-					<Route index element = {<Home />} />
+
+					<Route index element = {<Landing />} />
+					<Route path="landing" element={<Landing/>} />
+					<Route path="signup" element={<SignUp/>} />
+					<Route path="signin" element={<SignIn/>} />
+
+
+					<Route path="dashboard" element={<Home />} />
 					<Route path="docs" element = {<Docs />} />
 					<Route path="collaborate" element = {<Collaborate />} />
 					<Route path = "script" element = {<Script />} />
@@ -44,9 +51,7 @@ const App = () => {
 					<Route path = "analytics" element = {<Analytics />} />
 
 
-					<Route path="/landing" element={<Landing/>} />
-					<Route path="/signup" element={<SignUp/>} />
-					<Route path="/signin" element={<SignIn/>} />
+
 
 				</Route>
 

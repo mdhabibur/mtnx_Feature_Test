@@ -14,19 +14,19 @@ const PublicNavbar = () => {
       <div className="flex items-center justify-between">
         {/* Brand Name */}
         <div className="text-lg font-semibold mx-2 ">
-          <Link to='/landing'>
+          <Link to='/'>
           Vogg
           </Link>
           </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-4">
-          <a href="/signin">
+          <Link to="/signin">
             <button className="motionx_btn bg-transparent text-black hover:bg-gray-300 transition">Sign In</button>
-          </a>
-          <a href="/signup">
+          </Link>
+          <Link to="/signup">
             <button className= "motionx_btn">Sign Up</button>
-          </a>
+          </Link>
         </div>
 
         {/* Hamburger Icon */}
@@ -42,18 +42,18 @@ const PublicNavbar = () => {
         <div className="md:hidden mt-2 bg-white">
           <div className="flex flex-col p-4 space-y-2">
 
-            <a href="/pages" className="text-gray-800">Pages</a>
-            <a href="/docs" className="text-gray-800">Docs</a>
+            <Link to="/pages" className="text-gray-800">Pages</Link>
+            <Link to="/docs" className="text-gray-800">Docs</Link>
 
             <div className="flex flex-row gap-3 py-4">
 
-              <a href="/signin">
+              <Link to="/signin">
                 <button className= "motionx_btn bg-transparent text-gray-800 outline outline-1 hover:bg-gray-300 transition">Sign In</button>
-              </a>
+              </Link>
 
-              <a href="/signup">
+              <Link to="/signup">
                 <button className="motionx_btn ">Sign Up</button>
-              </a>
+              </Link>
             </div>
 
 
