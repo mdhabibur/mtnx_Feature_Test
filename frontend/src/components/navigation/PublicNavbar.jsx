@@ -1,5 +1,6 @@
 import React, { useState } from 'react'; // Make sure to import useState
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 
 const PublicNavbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -12,7 +13,11 @@ const PublicNavbar = () => {
     <nav className="sticky top-0 z-10 bg-white  shadow-md max-w-7xl mx-auto p-3 border border-t-0 rounded-xl ">
       <div className="flex items-center justify-between">
         {/* Brand Name */}
-        <div className="text-lg font-semibold mx-2 ">Vogg</div>
+        <div className="text-lg font-semibold mx-2 ">
+          <Link to='/landing'>
+          Vogg
+          </Link>
+          </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-4">

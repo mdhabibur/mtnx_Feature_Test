@@ -22,7 +22,6 @@ import PublicNavbar from "./components/navigation/PublicNavbar";
 const App = () => {
 	return (
 		<Router>
-			<PublicNavbar />
 			<Routes>
 				<Route path="/" element = {<MainLayout />}>
 					{/* nested routes  */}
@@ -44,11 +43,13 @@ const App = () => {
 					<Route path = "monetization" element = {<Monetization />} />
 					<Route path = "analytics" element = {<Analytics />} />
 
+
+					<Route path="/landing" element={<Landing/>} />
+					<Route path="/signup" element={<SignUp/>} />
+					<Route path="/signin" element={<SignIn/>} />
+
 				</Route>
 
-				<Route path="/landing" element={<Landing/>} />
-				<Route path="/signup" element={<SignUp/>} />
-				<Route path="/signin" element={<SignIn/>} />
 
 
 			</Routes>
