@@ -1,8 +1,57 @@
-import React from 'react'
+import React, { useState } from 'react'
 import googleLogo from '../assets/images/landing/logo-google.png'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { signUpUser } from '../redux/auth/authApi'
+import { errorMsg, loadingMsg, successMsg } from '../utils/messages'
 
 const SignUp = () => {
+
+
+  const {loading, error, success, currentUser} = useSelector((state) => state.auth)
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""
+  })
+
+  const dispatch = useDispatch()
+
+
+  const handleFieldChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name] : e.target.value
+
+    })
+
+  }
+
+  console.log("formData: ", formData)
+
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault()
+
+    try {
+      //sign up user
+      dispatch(signUpUser(
+        {
+        url: "https://backend.motionnx.com/api/auth/signup",
+        formData: formData, 
+      }
+    ))
+
+      
+    } catch (error) {
+       console.log("Error FE: ", error)
+
+    }
+
+  }
+
+
+
   return (
     <section className="grid h-screen items-center p-8 ">
 
@@ -16,15 +65,30 @@ const SignUp = () => {
           Enter your email and password to register.
         </p>
 
-        <form action="#" className="mx-auto max-w-[24rem] text-left">
 
-          <div className="mb-4">
+
+
+        <form onSubmit={handleFormSubmit} className="mx-auto max-w-[24rem] text-left" >
+
+        {loading && loadingMsg()}
+        {error && errorMsg(error)}
+        {success && successMsg(success)}
+
+        {console.log("signed up user id: ", currentUser)}
+
+
+
+
+          <div className="mb-4 mt-4">
+
             <input
               id="email"
               type="email"
               name="email"
               placeholder="Email"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={formData.email}
+              onChange={handleFieldChange}
               required
             />
           </div>
@@ -37,6 +101,8 @@ const SignUp = () => {
               name="password"
               placeholder="Password"
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={formData.password}
+              onChange={handleFieldChange}
               required
             />
           </div>
