@@ -1,5 +1,6 @@
 import React from 'react';
 import vogg_video from '../../assets/images/landing/vogg_video.webp'
+import { Link } from 'react-router-dom';
 
 const JoinVoggLanding = () => {
     return (
@@ -16,11 +17,11 @@ const JoinVoggLanding = () => {
               <p className="text-white text-lg motionx_openSans_font font-semibold" >
                 Join thousands of creators and businesses using Vogg to transform their video production process.
               </p>
-              <a href="#">
+              <Link to="/signup">
                 <button className="flex items-center mt-5 px-4 py-2 border border-white text-sm font-semibold text-white uppercase rounded-lg hover:bg-white hover:text-black transition">
                   Sign Up Now – It's Free!
                 </button>
-              </a>
+              </Link>
             </div>
 
             <div className="relative grid h-96 place-items-center md:h-auto md:w-5/12">

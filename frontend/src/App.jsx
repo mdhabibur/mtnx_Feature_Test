@@ -19,6 +19,8 @@ import SignIn from "./pages/SignIn";
 import PublicNavbar from "./components/navigation/PublicNavbar";
 import PublicRoute from "./components/privateRoutes/PublicRoute";
 import PrivateRoute from "./components/privateRoutes/PrivateRoute";
+import Pages from "./pages/Pages";
+import NotFound from "./components/layout/NotFound";
 
 
 const App = () => {
@@ -43,16 +45,24 @@ const App = () => {
 						</PublicRoute>
 						} />
 
+					<Route path="docs" element = {
+							<Docs />
+						} 
+						/>
+
+					<Route path="pages" element = {
+							<Pages />
+						} 
+						/>	
+
+
+
 
 					<Route path="dashboard" element={
 						<PrivateRoute> 
 							<Home />
 						</PrivateRoute>} />
 
-					<Route path="docs" element = {
-						<PrivateRoute> 
-							<Docs />
-						</PrivateRoute>} />
 
 					<Route path="collaborate" element = {
 						<PrivateRoute> 
@@ -94,6 +104,8 @@ const App = () => {
 
 				</Route>
 
+				{/* Catch-all route for unmatched paths */}
+				<Route path="*" element={<NotFound />} />
 
 			</Routes>
 		</Router>
