@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { signUpUser } from "./authApi";
+import { signInUser, signUpUser } from "./authApi";
 
 
 const initialState = {
     currentUser: null,
+    currentUserToken:null,
     loading: false,
     error: null,
     success: null
@@ -13,9 +14,12 @@ const initialState = {
 const authSlice = createSlice({
     name: 'auth',
     initialState,
-    clearErrorMsg: (state) => {
-        state.error = null
-        state.success = null
+    
+    reducers: {
+        clearErrorOrSuccessMsg: (state) => {
+            state.error = null
+            state.success = null
+        },
     },
 
     extraReducers: (builder) => {
@@ -39,6 +43,28 @@ const authSlice = createSlice({
 
             })
 
+
+
+            .addCase(signInUser.pending, (state) => {
+                state.loading = true
+                state.error = null
+            })
+            .addCase(signInUser.fulfilled, (state, action) => {
+                state.loading = false
+                state.error = null
+                state.currentUserToken = action.payload.token
+                state.success = true
+
+            })
+            .addCase(signInUser.rejected, (state, action) => {
+                state.loading = false
+                state.success = null
+                state.error = action.payload
+
+            })
+
+
+
     }
 
 
@@ -46,5 +72,5 @@ const authSlice = createSlice({
 })
 
 
-export const {clearErrorMsg} = authSlice.actions
+export const {clearErrorOrSuccessMsg} = authSlice.actions
 export default authSlice.reducer

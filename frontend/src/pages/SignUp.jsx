@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import googleLogo from '../assets/images/landing/logo-google.png'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { signUpUser } from '../redux/auth/authApi'
 import { errorMsg, loadingMsg, successMsg } from '../utils/messages'
+import { clearErrorOrSuccessMsg } from '../redux/auth/authSlice'
 
 const SignUp = () => {
 
@@ -16,6 +17,7 @@ const SignUp = () => {
   })
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
 
   const handleFieldChange = (e) => {
@@ -44,11 +46,35 @@ const SignUp = () => {
 
       
     } catch (error) {
-       console.log("Error FE: ", error)
+       console.log("Error in sign up FE: ", error)
 
     }
 
   }
+
+  //display error or success notification only for 3 seconds
+  useEffect(() => {
+    let timer 
+
+    if(error || success){
+      if(success){
+        dispatch(clearErrorOrSuccessMsg())
+        navigate('/signin')
+        return
+      }
+
+      timer = setTimeout(() => {
+        dispatch(clearErrorOrSuccessMsg())
+      }, 3000)
+
+    }
+
+    //clean up timer on unmount
+    return () => clearTimeout(timer)
+
+  }, [error, success, dispatch, navigate])
+
+
 
 
 
@@ -109,6 +135,7 @@ const SignUp = () => {
 
           <button
             type="submit"
+            disabled={loading}
             className="mt-4 w-full motionx_lg_btn  hover:bg-gray-700 transition-all uppercase"
           >
             Get Started

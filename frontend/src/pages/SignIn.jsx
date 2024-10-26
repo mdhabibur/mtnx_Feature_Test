@@ -1,7 +1,74 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import googleLogo from '../assets/images/landing/logo-google.png'
+import { useDispatch, useSelector } from 'react-redux'
+import { signInUser } from '../redux/auth/authApi'
+import { errorMsg, loadingMsg } from '../utils/messages'
+import { useNavigate } from 'react-router-dom'
+import { clearErrorOrSuccessMsg } from '../redux/auth/authSlice'
+
 
 const SignIn = () => {
+
+  const {loading, error, success, currentUserToken} = useSelector((state) => state.auth)
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""
+  })
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const handleFieldChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name] : e.target.value
+    })
+  }
+
+  console.log("formData: ", formData)
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault()
+
+    try {
+      dispatch(signInUser({
+        url: "https://backend.motionnx.com/api/auth/signin",
+        formData
+      }))
+      
+    } catch (error) {
+      console.log("Error in sign in FE: ", error)
+
+    }
+
+  }
+
+
+  //display error or success notification only for 3 seconds
+  useEffect(() => {
+    let timer 
+
+    if(error || success){
+      if(success){
+        dispatch(clearErrorOrSuccessMsg())
+        navigate('/dashboard')
+        return
+      }
+
+      timer = setTimeout(() => {
+        dispatch(clearErrorOrSuccessMsg())
+      }, 3000)
+
+    }
+
+    //clean up timer on unmount
+    return () => clearTimeout(timer)
+
+  }, [error, success, dispatch, navigate])
+
+
+
 
   return (
 
@@ -12,15 +79,21 @@ const SignIn = () => {
             <h3 className="text-3xl font-bold text-blue-gray-800 mb-2">Welcome back</h3>
             <p className="font-medium text-base mb-16 text-gray-600 motionx_openSans_font">Welcome back, please enter your details.</p>
     
-            <form action="#" className="mx-auto max-w-[24rem] text-left ">
+            <form onSubmit={handleFormSubmit} className="mx-auto max-w-[24rem] text-left ">
 
-              <div className="mb-4">
+              {loading && loadingMsg()}
+              {error && errorMsg(error)}
+
+
+              <div className="mb-4 mt-4">
                 <input
                     id="email"
                     type="email"
                     name="email"
                     placeholder="Email"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    value={formData.email}
+                    onChange={handleFieldChange}
                     required
                     />
               </div>
@@ -33,6 +106,8 @@ const SignIn = () => {
                 name="password"
                 placeholder="Password"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                value={formData.password}
+                onChange={handleFieldChange}
                 required
                 />
 
@@ -60,9 +135,10 @@ const SignIn = () => {
     
               <button
                 type="submit"
+                disabled={loading}
                 className="mt-6 w-full motionx_lg_btn hover:bg-gray-700 transition-all uppercase"
               >
-                Sign in
+                {loading ? "Signing...In" : "Sign In"}
               </button>
     
               <button
