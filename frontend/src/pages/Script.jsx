@@ -9,6 +9,11 @@ import { FaChevronDown } from "react-icons/fa6";
 
 
 const Script = () => {
+
+    //handle script generation when user gives prompts
+
+
+
   return (
 
     <div className='my_container py-3 my-3 flex flex-col gap-5  items-center '> 
