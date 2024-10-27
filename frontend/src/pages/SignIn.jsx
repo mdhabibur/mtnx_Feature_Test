@@ -5,6 +5,7 @@ import { signInUser } from '../redux/auth/authApi'
 import { errorMsg, loadingMsg } from '../utils/messages'
 import { useNavigate } from 'react-router-dom'
 import { clearErrorOrSuccessMsg } from '../redux/auth/authSlice'
+import { showErrorOrSuccessMsgForOnlyThreeSeconds } from '../utils/showErrorOrSuccessMsgForOnlyThreeSeconds'
 
 
 const SignIn = () => {
@@ -47,23 +48,9 @@ const SignIn = () => {
 
   //display error or success notification only for 3 seconds
   useEffect(() => {
-    let timer 
-
-    if(error || success){
-      if(success){
-        dispatch(clearErrorOrSuccessMsg())
-        navigate('/dashboard')
-        return
-      }
-
-      timer = setTimeout(() => {
-        dispatch(clearErrorOrSuccessMsg())
-      }, 3000)
-
-    }
-
-    //clean up timer on unmount
-    return () => clearTimeout(timer)
+    
+    const cleanup = showErrorOrSuccessMsgForOnlyThreeSeconds(error, success, dispatch, clearErrorOrSuccessMsg, navigate, "/dashboard")
+    return cleanup
 
   }, [error, success, dispatch, navigate])
 

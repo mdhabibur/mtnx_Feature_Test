@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import collaborator from '../assets/images/script/collaborator.svg'
 import { RxCross1 } from "react-icons/rx";
 import { FaAngleDown } from "react-icons/fa";
@@ -7,6 +7,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import GenerateScriptModal from '../components/script/GenerateScriptModal';
 import { generateScript } from '../redux/script/scriptApi';
+import { clearErrorOrSuccessMsg } from '../redux/script/scriptSlice';
+import { showErrorOrSuccessMsgForOnlyThreeSeconds } from '../utils/showErrorOrSuccessMsgForOnlyThreeSeconds';
 
 
 
@@ -48,6 +50,16 @@ const Script = () => {
         navigator.clipboard.writeText(scripts[scripts.length - 1]?.script)
 
     }
+
+    // Display error or success notification only for 3 seconds
+    useEffect(() => {
+
+        const cleanup = showErrorOrSuccessMsgForOnlyThreeSeconds(error, success, dispatch, clearErrorOrSuccessMsg, navigate, "")
+        return cleanup
+
+    }, [error, success, dispatch, navigate])
+   
+
 
 
 
