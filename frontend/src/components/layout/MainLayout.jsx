@@ -8,15 +8,29 @@ import motionx_ai from "../../assets/images/sidebar/motionx_ai.svg"
 import monetization from "../../assets/images/sidebar/monetization.svg"
 import analytics from "../../assets/images/sidebar/analytics.svg"
 import PublicNavbar from "../navigation/PublicNavbar";
+import { FaSignOutAlt } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../../redux/auth/authSlice";
 
 
 
 const MainLayout = () => {
 
+    const {currentUser, currentUserToken } = useSelector((state) => state.auth)
+
     const location = useLocation()
+    const dispatch = useDispatch()
 
       // Check if the current path is '/signin' or '/signup'
         const isPublicRoute = location.pathname === '/'|| location.pathname === '/landing' || location.pathname === '/signin' || location.pathname === '/signup';
+
+
+    const handleLogout = () => {
+        dispatch(logoutUser())
+    }
+
+    console.log("current user: ", currentUser)
+    console.log("current user Token: ", currentUserToken)
 
 
 	return (
@@ -71,13 +85,22 @@ const MainLayout = () => {
     
     
                         <li>
-                            <Link to="/analytics" className={` flex-wrap flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/analytics' ? "active_menu_item": ""}`}>
+                            <Link to="/analytics" className={` flex-wrap flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/analytics' ? "active_menu_item": ""} `}>
                                 <img src={analytics} className="w-5 h-5" alt="" />
                                 <span className="font-semibold hidden sm:block">Analytics</span>
                             </Link>
                         </li>
     
-    
+
+
+                        <li>
+                            <Link to="#" onClick={handleLogout} className={` flex-wrap flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/logout' ? "active_menu_item": ""} ` }>
+
+                                <FaSignOutAlt className="pl-[2px] w-5 h-5" alt="logout" />
+                                <span className="font-semibold hidden sm:block">Logout</span>
+                            </Link>
+                        </li>
+        
     
     
                     </ul>
