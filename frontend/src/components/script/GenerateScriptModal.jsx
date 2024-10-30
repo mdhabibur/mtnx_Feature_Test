@@ -14,7 +14,7 @@ const GenerateScriptModal = ({
     console.log("content: ", content)
 
 	return (
-		<div className="absolute top-[10%] flex items-center justify-center shadow-lg rounded-lg ">
+		<div className="absolute top-20 flex items-center justify-center shadow-lg rounded-lg ">
 
 			<div className="bg-gray-600 text-gray-200 shadow-lg rounded-lg p-5 max-w-4xl mx-auto overflow-y-auto">
 

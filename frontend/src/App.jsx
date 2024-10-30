@@ -21,6 +21,7 @@ import PublicRoute from "./components/privateRoutes/PublicRoute";
 import PrivateRoute from "./components/privateRoutes/PrivateRoute";
 import Pages from "./pages/Pages";
 import NotFound from "./components/layout/NotFound";
+import ConnectSocialMedia from "./pages/SocialMedia/ConnectSocialMedia";
 
 
 const App = () => {
@@ -100,6 +101,16 @@ const App = () => {
 						<PrivateRoute> 
 							<Analytics />
 						</PrivateRoute>} />
+						
+						
+
+					<Route path = "connect-social-media" element = {
+						<PrivateRoute> 
+							<ConnectSocialMedia />
+						</PrivateRoute>} />
+
+
+
 
 
 				</Route>

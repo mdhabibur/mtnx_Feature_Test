@@ -13,7 +13,8 @@ const PublicNavbar = () => {
 	};
 
 	return (
-		<nav className="sticky top-0 z-10 bg-white  shadow-md max-w-7xl mx-auto p-3 border border-t-0 rounded-xl ">
+		<nav className="sticky top-0 z-10 bg-white  shadow-md max-w-7xl mx-auto p-3 border border-t-0 rounded-xl">
+
 			<div className="flex items-center justify-between">
 				{/* Brand Name */}
 				<div className="text-lg font-semibold mx-2 ">

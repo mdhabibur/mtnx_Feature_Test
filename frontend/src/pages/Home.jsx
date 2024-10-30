@@ -17,11 +17,14 @@ import project_analyse from "../assets/images/homepage/projectInsights/analyse.s
 import project_compare from "../assets/images/homepage/projectInsights/compare.svg"
 import project_running_posts from "../assets/images/homepage/projectInsights/running_posts.svg"
 import project_dilution from "../assets/images/homepage/projectInsights/dilution.svg"
+import { useNavigate } from 'react-router-dom'
 
 
 
 
 const Home = () => {
+
+    const navigate = useNavigate()
 
     const createProjectData = [
         {
@@ -207,7 +210,8 @@ const Home = () => {
 
 
 
-                    <div className='w-[438px] flex flex-col items-start gap-5 border rounded-lg shadow-md hover:scale-90 transition-all duration-300 cursor-pointer p-3'>
+                    <div className='w-[438px] flex flex-col items-start gap-5 border rounded-lg shadow-md hover:scale-90 transition-all duration-300 cursor-pointer p-3' onClick={() => navigate('/connect-social-media')}>
+                        
                         <img className='w-full' src={connect_social} alt="" />
 
                         <div className='space-y-1 py-3'>

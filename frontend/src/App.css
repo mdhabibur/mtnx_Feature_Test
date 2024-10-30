@@ -7,6 +7,11 @@ body{
     font-family: "Manrope", sans-serif;
 }
 
+#navbar {
+    height: 4rem !important;
+    min-height: 4rem;
+  }
+
 
 /* custom classes  */
 .my_container {

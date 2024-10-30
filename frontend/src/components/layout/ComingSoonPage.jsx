@@ -4,9 +4,9 @@ const ComingSoonPage = () => {
 	return (
 		// <div className="flex items-start justify-center lg:justify-normal lg:mx-20 w-full h-auto bg-white mt-6 border-4 ">
 
-		<div className="flex justify-center lg:mx-20 w-full h-auto bg-white mt-6">
+		<div className="flex justify-center lg:mx-20 w-full bg-white pt-6  border-l h-screen overflow-hidden">
 
-			<div className="max-w-xs md:max-w-xl lg:max-w-2xl text-center px-6 py-6 lg:px-20 mx-2 bg-white shadow-lg rounded-lg">
+			<div className="h-fit max-w-xs md:max-w-xl lg:max-w-2xl text-center px-6 py-6 lg:px-20 mx-2 bg-white shadow-lg rounded-lg border-2">
 				<h2 className="my_h2 mb-4">Coming Soon!</h2>
 				<p className="text-sm text-gray-600 mb-8">
 					We are working hard to bring you something amazing. Stay tuned!

@@ -8,7 +8,6 @@ import { FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
 
-
 	const [isSticky, setSticky] = useState(false);
 	const location = useLocation()
 
@@ -33,6 +32,8 @@ const Navbar = () => {
 
 	}, [])
 
+	
+
 	const navItems = (
 		<>
 			<li className="pr-2">
@@ -50,9 +51,12 @@ const Navbar = () => {
 	);
 	
 	return (
-		<header className={`my_container z-50 my-0 border-b-[1px] fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out ${isSticky ? "shadow-md bg-base-100 transition-all duration-300 ease-in-out": ""} `}>
+		<header className={`my_container z-50 my-0 border-b-[1px] fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out ${isSticky ? "shadow-md bg-base-100 transition-all duration-300 ease-in-out": ""}  `}>
 
-			<div className={`navbar flex justify-between items-center p-0 m-0`}>
+
+
+			<div id="navbar" className="navbar flex justify-between items-center p-0 m-0  "
+			>
 
 				<div className="flex items-center">
 
@@ -123,6 +127,8 @@ const Navbar = () => {
 
 
 			</div>
+
+
 		</header>
 	);
 };

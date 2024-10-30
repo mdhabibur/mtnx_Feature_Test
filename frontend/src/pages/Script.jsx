@@ -66,7 +66,7 @@ const Script = () => {
 
   return (
 
-    <div className='my_container py-3 my-3 flex flex-col gap-5  items-center '> 
+    <div className='my_container py-3 flex flex-col gap-5  items-center border-l h-screen overflow-hidden'> 
     
     {/* hide the form when generating script  */}
     {!loading && (
