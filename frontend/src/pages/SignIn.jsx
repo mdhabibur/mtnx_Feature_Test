@@ -6,6 +6,7 @@ import { errorMsg, loadingMsg } from '../utils/messages'
 import { useNavigate } from 'react-router-dom'
 import { clearErrorOrSuccessMsg } from '../redux/auth/authSlice'
 import { showErrorOrSuccessMsgForOnlyThreeSeconds } from '../utils/showErrorOrSuccessMsgForOnlyThreeSeconds'
+import { baseURL } from '../config/apiConfig'
 
 
 const SignIn = () => {
@@ -34,7 +35,7 @@ const SignIn = () => {
 
     try {
       dispatch(signInUser({
-        url: "https://backend.motionnx.com/api/auth/signin",
+        url: `${baseURL}/api/auth/signin`,
         formData
       }))
       

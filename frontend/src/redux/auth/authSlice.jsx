@@ -91,7 +91,7 @@ const authSlice = createSlice({
                 state.loading = false
                 state.error = null
                 state.userProfile = action.payload.profile
-                state.success = true
+                state.success = action.payload.message
 
             })
             .addCase(createUserProfile.rejected, (state, action) => {

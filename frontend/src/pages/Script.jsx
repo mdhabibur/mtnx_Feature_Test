@@ -9,6 +9,7 @@ import GenerateScriptModal from '../components/script/GenerateScriptModal';
 import { generateScript } from '../redux/script/scriptApi';
 import { clearErrorOrSuccessMsg } from '../redux/script/scriptSlice';
 import { showErrorOrSuccessMsgForOnlyThreeSeconds } from '../utils/showErrorOrSuccessMsgForOnlyThreeSeconds';
+import { baseURL } from '../config/apiConfig';
 
 
 
@@ -38,7 +39,7 @@ const Script = () => {
     const handleFormSubmit = async (e) => {
         e.preventDefault()
         dispatch(generateScript({
-            url: "https://backend.motionnx.com/api/script/",
+            url: `${baseURL}/api/script/`,
             formData,
             currentUserToken
         }))

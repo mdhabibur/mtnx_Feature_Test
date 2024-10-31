@@ -6,6 +6,7 @@ import { signUpUser } from '../redux/auth/authApi'
 import { errorMsg, loadingMsg, successMsg } from '../utils/messages'
 import { clearErrorOrSuccessMsg } from '../redux/auth/authSlice'
 import { showErrorOrSuccessMsgForOnlyThreeSeconds } from '../utils/showErrorOrSuccessMsgForOnlyThreeSeconds'
+import { baseURL } from '../config/apiConfig'
 
 const SignUp = () => {
 
@@ -40,7 +41,7 @@ const SignUp = () => {
       //sign up user
       dispatch(signUpUser(
         {
-        url: "https://backend.motionnx.com/api/auth/signup",
+        url: `${baseURL}/api/auth/signup`,
         formData: formData, 
       }
     ))

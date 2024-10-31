@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleUpdateProfileDialog } from '../../redux/auth/authSlice';
+import { clearErrorOrSuccessMsg, toggleUpdateProfileDialog } from '../../redux/auth/authSlice';
 import { createUserProfile } from '../../redux/auth/authApi';
+import { showErrorOrSuccessMsgForOnlyThreeSeconds } from '../../utils/showErrorOrSuccessMsgForOnlyThreeSeconds';
+import { useNavigate } from 'react-router-dom';
+import { errorMsg, loadingMsg, successMsg } from '../../utils/messages';
+import { baseURL } from '../../config/apiConfig';
 
 
 const UpdateProfileModal = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
-    const showModal = useSelector((state) => state.auth.showUpdateProfileDialog);
+    const {showUpdateProfileDialog, loading, error, success} = useSelector((state) => state.auth);
 
     const [formData, setFormData] = useState({
         name: '',
@@ -45,7 +50,7 @@ const UpdateProfileModal = () => {
             
         try {
             dispatch(createUserProfile({
-            url: "https://backend.motionnx.com/api/auth/profile",
+            url: `${baseURL}/api/auth/profile`,
             formData
             }))
 
@@ -57,10 +62,27 @@ const UpdateProfileModal = () => {
         }
 
 
-        handleClose();
+        // close the modal after 3 seconds of profile update for displaying success or error message
+        setTimeout(() => {
+            handleClose();
+        }, 3000)
+
     };
 
-    if (!showModal) return null;
+    console.log("success message: ", success)
+
+      //display error or success notification only for 3 seconds
+
+        useEffect(() => {
+            
+            const cleanup = showErrorOrSuccessMsgForOnlyThreeSeconds(error, success, dispatch, clearErrorOrSuccessMsg, navigate, "/dashboard")
+            return cleanup
+
+        }, [error, success, dispatch, navigate])
+
+
+
+    if (!showUpdateProfileDialog) return null;
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
@@ -133,6 +155,11 @@ const UpdateProfileModal = () => {
                 >
                     Cancel
                 </button>
+
+                {loading && loadingMsg()}
+                {error && errorMsg(error)}
+                {success && successMsg(success)}
+
             </div>
 
 
