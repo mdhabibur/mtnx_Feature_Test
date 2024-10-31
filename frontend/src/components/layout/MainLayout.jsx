@@ -25,9 +25,6 @@ const MainLayout = () => {
         const isPublicRoute = location.pathname === '/'|| location.pathname === '/landing' || location.pathname === '/signin' || location.pathname === '/signup';
 
 
-    const handleLogout = () => {
-        dispatch(logoutUser())
-    }
 
     console.log("current user: ", currentUser)
     console.log("current user Token: ", currentUserToken)
@@ -41,7 +38,7 @@ const MainLayout = () => {
             {!isPublicRoute ?
             (
                 // routes with sidebar 
-                <div className="flex flex-row justify-between gap-4   mt-16 min-h-screen">
+                <div className="flex flex-row justify-between gap-4 mt-16 min-h-screen w-full">
 
                 <div className="flex flex-col w-[20%] sm:w-[22%] md:w-[22%] lg:w-[16%] container px-4 sm:px-10 md:px-6 bg-white flex-wrap min-h-full">
                     <ul className="space-y-1 py-6">
@@ -88,16 +85,6 @@ const MainLayout = () => {
                             <Link to="/analytics" className={` flex-wrap flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/analytics' ? "active_menu_item": ""} `}>
                                 <img src={analytics} className="w-5 h-5" alt="" />
                                 <span className="font-semibold hidden sm:block">Analytics</span>
-                            </Link>
-                        </li>
-    
-
-
-                        <li>
-                            <Link to="#" onClick={handleLogout} className={` flex-wrap flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-200 text-sm rounded-lg hover:-translate-y-[2px] transition-all duration-200 ${location.pathname === '/logout' ? "active_menu_item": ""} ` }>
-
-                                <FaSignOutAlt className="pl-[2px] w-5 h-5" alt="logout" />
-                                <span className="font-semibold hidden sm:block">Logout</span>
                             </Link>
                         </li>
         

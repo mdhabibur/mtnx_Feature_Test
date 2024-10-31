@@ -4,12 +4,18 @@ import logo from "../../assets/images/header/logo.svg";
 import profile from "../../assets/images/header/profile.svg"
 import { IoIosNotifications } from "react-icons/io";
 import { FaSearch } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleUpdateProfileDialogMenu } from "../../redux/auth/authSlice";
+import UpdateProfileMenu from "../profile/UpdateProfileMenu";
 
 
 const Navbar = () => {
 
+	const {showUpdateProfileDialogMenu } = useSelector((state) => state.auth)
+
 	const [isSticky, setSticky] = useState(false);
 	const location = useLocation()
+	const dispatch = useDispatch()
 
 	//fixed sticky navigation bar
 	useEffect(() => {
@@ -49,9 +55,25 @@ const Navbar = () => {
 			</li>
 		</>
 	);
+
+	const handleProfileOnMouseEnter = (e) => {
+		dispatch(toggleUpdateProfileDialogMenu(true))
+	}
+
+	const handelProfileOnMouseLeave = (e) => {
+		dispatch(toggleUpdateProfileDialogMenu(false))
+	}
+
+	console.log("show update profile dialog menu: ", showUpdateProfileDialogMenu)
 	
 	return (
-		<header className={`my_container z-50 my-0 border-b-[1px] fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out ${isSticky ? "shadow-md bg-base-100 transition-all duration-300 ease-in-out": ""}  `}>
+		<header onMouseLeave={handelProfileOnMouseLeave} className={`my_container z-50 my-0 border-b-[1px] fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out ${isSticky ? "shadow-md bg-base-100 transition-all duration-300 ease-in-out": ""}  `}>
+
+
+			{/* update profile dialog  */}
+			{showUpdateProfileDialogMenu && (
+				<UpdateProfileMenu />
+			)}
 
 
 
@@ -113,7 +135,11 @@ const Navbar = () => {
 					<IoIosNotifications className="w-6 h-6" />
 					</button>
 
-					<button className="bg bg-gray-200 w-8 h-8 rounded-full items-center justify-center hover:scale-105 transition-all duration-200">
+					<button
+					onMouseEnter={handleProfileOnMouseEnter}
+					
+					className="bg bg-gray-200 w-8 h-8 rounded-full items-center justify-center hover:scale-105 transition-all duration-200">
+
 					<img className="w-8 h-8" src={profile} alt="logo" />
 					</button>
 

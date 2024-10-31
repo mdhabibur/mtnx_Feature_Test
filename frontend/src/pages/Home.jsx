@@ -95,6 +95,11 @@ const Home = () => {
     ]
 
 
+    const handleCreateVideoProject = async (e) => {
+        navigate('/project/video-project')
+    }
+
+
   return (
     <div>
 
@@ -115,7 +120,7 @@ const Home = () => {
                 <p className='text-[13px] w-2/3 mb-4'>From onboarding to liquidity events, Carta's platform makes it easy to manage your team's equity. Invite your team to get started.</p>
 
 
-                <button className="border bg-black px-4 py-2 rounded-full text-xs">
+                <button onClick={handleCreateVideoProject} className="border bg-black px-4 py-2 rounded-full text-xs">
                     <span className="my-gradient-text-btn">
                         Create a Project
                     </span>

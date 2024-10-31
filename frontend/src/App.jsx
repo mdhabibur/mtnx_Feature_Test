@@ -22,6 +22,7 @@ import PrivateRoute from "./components/privateRoutes/PrivateRoute";
 import Pages from "./pages/Pages";
 import NotFound from "./components/layout/NotFound";
 import ConnectSocialMedia from "./pages/SocialMedia/ConnectSocialMedia";
+import VideoProject from "./pages/CreateProjects/VideoProject";
 
 
 const App = () => {
@@ -102,12 +103,19 @@ const App = () => {
 							<Analytics />
 						</PrivateRoute>} />
 						
+
+					<Route path = "project/video-project" element = {
+						<PrivateRoute> 
+							<VideoProject />
+						</PrivateRoute>} 
+						/>
 						
 
 					<Route path = "connect-social-media" element = {
 						<PrivateRoute> 
 							<ConnectSocialMedia />
-						</PrivateRoute>} />
+						</PrivateRoute>}
+					 />
 
 
 

@@ -5,6 +5,7 @@ import { signInUser, signUpUser } from "./authApi";
 const initialState = {
     currentUser: null,
     currentUserToken:null,
+    showUpdateProfileDialogMenu: false,
     loading: false,
     error: null,
     success: null
@@ -24,6 +25,9 @@ const authSlice = createSlice({
             state.currentUser = null
             state.currentUserToken = null 
         },
+        toggleUpdateProfileDialogMenu: (state, action) => {
+            state.showUpdateProfileDialogMenu = action.payload
+        }
     },
 
     extraReducers: (builder) => {
@@ -76,5 +80,5 @@ const authSlice = createSlice({
 })
 
 
-export const {clearErrorOrSuccessMsg, logoutUser} = authSlice.actions
+export const {clearErrorOrSuccessMsg, logoutUser, toggleUpdateProfileDialogMenu} = authSlice.actions
 export default authSlice.reducer
