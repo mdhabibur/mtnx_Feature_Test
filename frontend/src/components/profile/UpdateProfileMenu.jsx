@@ -1,8 +1,13 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { logoutUser, toggleUpdateProfileDialogMenu } from '../../redux/auth/authSlice'
+import { logoutUser, toggleUpdateProfileDialog, toggleUpdateProfileDialogMenu } from '../../redux/auth/authSlice'
+import { FaSignOutAlt, FaUserEdit } from 'react-icons/fa'
 
 const UpdateProfileMenu = () => {
+
+  const {userProfile } = useSelector((state) => state.auth)
+
+  console.log("user profile: ", userProfile)
 
   const dispatch = useDispatch()
 
@@ -14,16 +19,27 @@ const handelProfileOnMouseLeave = (e) => {
   dispatch(toggleUpdateProfileDialogMenu(false))
 }
 
+const handleUpdateProfile = () => {
+  dispatch(toggleUpdateProfileDialog(true));
+};
+
 
   return (
-    <div onClick={handelProfileOnMouseLeave} className='absolute right-0 top-16 flex flex-col items-start border px-6 py-3 bg-gray-50 text-gray-700 rounded-lg shadow-lg cursor-pointer'>
+    <div onClick={handelProfileOnMouseLeave} className='absolute right-0 top-16 flex flex-col items-start border px-5 py-2 bg-gray-100 text-gray-500 rounded-lg shadow-lg cursor-pointer'>
      
-      <button className='pt-2 px-2  text-sm font-semibold '>John Doe</button>
-      <button className='pt-1 pb-2 px-2 text-[10px] border-b'>Software developer at XYZ company</button>
+      <button className='pt-2 px-2  text-sm font-semibold uppercase '>{userProfile.name !== null ? userProfile.name : "John Doe"}</button>
 
-      <button className='py-1 mt-2 px-2  hover:bg-gray-300 rounded-lg text-sm font-semibold'>Update profile</button>
+      <button className='pt-1 pb-2 px-2 text-[10px] border-b italic w-full text-left '>{userProfile.bio !== null ? userProfile.bio : "Software developer"}</button>
 
-      <button onClick={handleLogout} className='py-1 px-2 hover:bg-gray-300 rounded-lg text-sm font-semibold'>Logout</button>
+      <button onClick={handleUpdateProfile} className='py-2 mt-2 px-2  hover:bg-gray-300 rounded-lg text-sm font-semibold w-full text-left flex flex-row gap-2  items-center justify-start '>
+        <FaUserEdit />
+        <p>Update profile</p>
+      </button>
+
+      <button onClick={handleLogout} className='py-2 px-2 hover:bg-gray-300 rounded-lg text-sm font-semibold w-full text-left flex flex-row gap-2  items-center justify-start'>
+        <FaSignOutAlt />
+        <p>Logout</p>
+        </button>
 
     </div>
   )

@@ -1,11 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { signInUser, signUpUser } from "./authApi";
+import { createUserProfile, signInUser, signUpUser } from "./authApi";
 
 
 const initialState = {
     currentUser: null,
     currentUserToken:null,
     showUpdateProfileDialogMenu: false,
+    showUpdateProfileDialog: false,
+    userProfile:{
+        name: null,
+        bio: null,
+        avatar: null,
+    },
     loading: false,
     error: null,
     success: null
@@ -27,7 +33,11 @@ const authSlice = createSlice({
         },
         toggleUpdateProfileDialogMenu: (state, action) => {
             state.showUpdateProfileDialogMenu = action.payload
-        }
+        },
+        toggleUpdateProfileDialog: (state, action) => {
+            state.showUpdateProfileDialog = action.payload;
+        },
+
     },
 
     extraReducers: (builder) => {
@@ -73,6 +83,26 @@ const authSlice = createSlice({
 
 
 
+            .addCase(createUserProfile.pending, (state) => {
+                state.loading = true
+                state.error = null
+            })
+            .addCase(createUserProfile.fulfilled, (state, action) => {
+                state.loading = false
+                state.error = null
+                state.userProfile = action.payload.profile
+                state.success = true
+
+            })
+            .addCase(createUserProfile.rejected, (state, action) => {
+                state.loading = false
+                state.success = null
+                state.error = action.payload
+
+            })
+
+
+
     }
 
 
@@ -80,5 +110,5 @@ const authSlice = createSlice({
 })
 
 
-export const {clearErrorOrSuccessMsg, logoutUser, toggleUpdateProfileDialogMenu} = authSlice.actions
+export const {clearErrorOrSuccessMsg, logoutUser, toggleUpdateProfileDialogMenu, toggleUpdateProfileDialog} = authSlice.actions
 export default authSlice.reducer

@@ -11,6 +11,7 @@ import PublicNavbar from "../navigation/PublicNavbar";
 import { FaSignOutAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../redux/auth/authSlice";
+import UpdateProfileModal from "../profile/UpdateProfileModal";
 
 
 
@@ -32,6 +33,7 @@ const MainLayout = () => {
 
 	return (
 		<div className="min-h-screen">
+
             {isPublicRoute ? <PublicNavbar /> : <Navbar />}
 			
 			
@@ -107,7 +109,6 @@ const MainLayout = () => {
             // routes without side bar 
             <Outlet />
         }
-
 
 
 		</div>

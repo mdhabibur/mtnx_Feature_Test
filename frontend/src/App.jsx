@@ -23,9 +23,13 @@ import Pages from "./pages/Pages";
 import NotFound from "./components/layout/NotFound";
 import ConnectSocialMedia from "./pages/SocialMedia/ConnectSocialMedia";
 import VideoProject from "./pages/CreateProjects/VideoProject";
+import UpdateProfileModal from "./components/profile/UpdateProfileModal";
+import { useSelector } from "react-redux";
 
 
 const App = () => {
+	 const showUpdateProfileModal = useSelector((state) => state.auth.showUpdateProfileDialog);
+
 	return (
 		<Router>
 			<Routes>
@@ -123,10 +127,17 @@ const App = () => {
 
 				</Route>
 
+
+
 				{/* Catch-all route for unmatched paths */}
 				<Route path="*" element={<NotFound />} />
 
+
 			</Routes>
+
+
+			{showUpdateProfileModal && <UpdateProfileModal />}
+			
 		</Router>
 
 	);
