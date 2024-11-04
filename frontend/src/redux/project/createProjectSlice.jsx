@@ -51,7 +51,7 @@ const createProjectSlice = createSlice({
             state.generateTemplateLoading = false;
             state.generateTemplateError = null;
             state.projectData = action.payload;
-            state.generateTemplateSuccess = action.payload.message || true
+            state.generateTemplateSuccess = action.payload
           })
           .addCase(generateProjectTemplates.rejected, (state, action) => {
             state.generateTemplateLoading = false;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ProjectCard from '../components/home/ProjectCard'
 
 import instagram_reels from "../assets/images/homepage/createProjects/Instagram_reels.svg"
@@ -18,13 +18,17 @@ import project_compare from "../assets/images/homepage/projectInsights/compare.s
 import project_running_posts from "../assets/images/homepage/projectInsights/running_posts.svg"
 import project_dilution from "../assets/images/homepage/projectInsights/dilution.svg"
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { toggleShowCreateProjectModal } from '../redux/project/createProjectSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { clearErrorOrSuccessMsg, toggleShowCreateProjectModal } from '../redux/project/createProjectSlice'
+import { successMsg } from '../utils/messages'
+import { showErrorOrSuccessMsgForOnlyThreeSeconds } from '../utils/showErrorOrSuccessMsgForOnlyThreeSeconds'
 
 
 
 
 const Home = () => {
+
+    const {createProjectError, createProjectSuccess, newProjectData } = useSelector((state) => state.createProject)
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -108,12 +112,25 @@ const Home = () => {
     }
 
 
+//display create new project error or success notification only for 3 seconds
+useEffect(() => {
+    const cleanup = showErrorOrSuccessMsgForOnlyThreeSeconds(createProjectError, createProjectSuccess, dispatch, clearErrorOrSuccessMsg, navigate, "/dashboard")
+    return cleanup
+
+    }, [createProjectError, createProjectSuccess, dispatch, navigate])
+
+
   return (
     <div>
 
         <div className='my_container py-3 my-3 flex flex-col gap-5'>
 
             <div className="first_div flex flex-col justify-start gap-2">
+
+            <div className='mb-3'>
+            {createProjectSuccess && successMsg(createProjectSuccess)}   
+            </div>
+
             <h3 className='my_h3'>Welcome to your MotionX dashboard</h3>
 
             <p className='text-[12px] w-2/3'>Invite your team to manage equity on Carta and improve your experience by connecting your accounting software</p>

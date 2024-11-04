@@ -4,9 +4,10 @@ import { createProject, generateProjectTemplates } from '../../redux/project/cre
 import { baseURL } from '../../config/apiConfig';
 import { errorMsg, loadingMsg, showInfoMsg, successMsg } from '../../utils/messages';
 import { showErrorOrSuccessMsgForOnlyThreeSeconds } from '../../utils/showErrorOrSuccessMsgForOnlyThreeSeconds';
-import { useFetcher, useNavigate } from 'react-router-dom';
+import { Navigate, useFetcher, useNavigate } from 'react-router-dom';
 import { clearErrorOrSuccessMsg, resetPreviousTemplates, toggleShowCreateProjectModal } from '../../redux/project/createProjectSlice';
 import { FaTimes } from 'react-icons/fa';
+import { logoutUser } from '../../redux/auth/authSlice';
 
 
 const VideoProject = () => {
@@ -108,6 +109,8 @@ const VideoProject = () => {
 
 
   console.log(" templates data: ", projectData)
+  console.log(" generate template message: ", generateTemplateSuccess)
+
 
 
     //display generate project template error or success notification only for 3 seconds
@@ -117,6 +120,16 @@ const VideoProject = () => {
       return cleanup
   
     }, [generateTemplateError, generateTemplateSuccess, dispatch, navigate])
+
+    //if the user authentication token expires, then navigate the user back to singin route
+    useEffect(() => {
+      if(generateTemplateSuccess && generateTemplateSuccess.message === "Invalid token"){
+        dispatch(toggleShowCreateProjectModal(false))
+        dispatch(logoutUser())
+        navigate('/signin')
+      }
+
+    }, generateTemplateSuccess, navigate)
 
 
     //display create new project error or success notification only for 3 seconds
@@ -150,7 +163,7 @@ const VideoProject = () => {
 
             <div className='w-[80%] max-w-md mx-auto flex flex-col justify-start gap-2 border rounded-lg p-4 shadow-lg '>
 
-            <div className='flex flex-row gap-3 justify-between items-center border border-gray-200 rounded-lg px-2 py-1 '>
+            <div className='flex flex-row gap-3 justify-between items-center border-b px-1 py-1 '>
 
               <h3 className='my_h4 text-blue-400'>Create Your video project now </h3>
 
@@ -168,8 +181,8 @@ const VideoProject = () => {
                   id="text"
                   name="text"
                   placeholder='Enter your prompt'
-                  className="mt-1 block w-full px-3 mb-6 mt-2 py-[10px] border border-gray-300 
-                  bg-gray-200
+                  className="mt-1 block w-full px-3 mb-6 mt-2 py-[10px] border border-gray-100 
+                  bg-gray-50
                   rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500
                   text-[10px]
                   sm:text-xs"
@@ -275,7 +288,16 @@ const VideoProject = () => {
               {/* generate project template messages */}
               {generateTemplateLoading && loadingMsg("generating templates...")}
               {generateTemplateError && errorMsg(generateTemplateError || "something went wrong")}
-              {/* {generateTemplateSuccess && successMsg(generateTemplateSuccess)} */}
+
+              {generateTemplateSuccess?.errors ? (
+                successMsg(generateTemplateSuccess.errors[0].detail)
+              ) : (
+                generateTemplateSuccess && (
+                  successMsg(generateTemplateSuccess.message)
+                )
+              )}
+
+
 
 
               {/* create new project messages  */}
