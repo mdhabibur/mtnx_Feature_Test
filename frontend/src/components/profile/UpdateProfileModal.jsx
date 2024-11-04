@@ -74,11 +74,15 @@ const UpdateProfileModal = () => {
       //display error or success notification only for 3 seconds
 
         useEffect(() => {
-            
             const cleanup = showErrorOrSuccessMsgForOnlyThreeSeconds(error, success, dispatch, clearErrorOrSuccessMsg, navigate, "/dashboard")
             return cleanup
 
         }, [error, success, dispatch, navigate])
+
+    //also clear the auth loading state as soon as this modal mounts
+    useEffect(() => {
+        dispatch(clearErrorOrSuccessMsg())
+    }, [])
 
 
 

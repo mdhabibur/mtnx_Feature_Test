@@ -24,6 +24,7 @@ const authSlice = createSlice({
     
     reducers: {
         clearErrorOrSuccessMsg: (state) => {
+            state.loading = false
             state.error = null
             state.success = null
         },
