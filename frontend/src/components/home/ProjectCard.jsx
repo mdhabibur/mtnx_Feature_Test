@@ -1,8 +1,8 @@
 import React from "react";
 
-const ProjectCard = ({item,  category = { name: "" }}) => {
+const ProjectCard = ({handleCreateVideoProject, item,  category = { name: "" }}) => {
 	return (
-		<div className="card card-compact bg-base-100 w-52 h-auto shadow-xl items-start cursor-pointer hover:scale-105 transition-all duration-300 overflow-y-auto">
+		<div onClick={handleCreateVideoProject} className="card card-compact bg-base-100 w-52 h-auto shadow-xl items-start cursor-pointer hover:scale-105 transition-all duration-300 overflow-y-auto">
 			<figure className = "w-full h-auto p-3">
 				<img
                     className="w-full h-auto mx-auto"

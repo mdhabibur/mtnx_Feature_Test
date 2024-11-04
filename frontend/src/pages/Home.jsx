@@ -18,6 +18,8 @@ import project_compare from "../assets/images/homepage/projectInsights/compare.s
 import project_running_posts from "../assets/images/homepage/projectInsights/running_posts.svg"
 import project_dilution from "../assets/images/homepage/projectInsights/dilution.svg"
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { toggleShowCreateProjectModal } from '../redux/project/createProjectSlice'
 
 
 
@@ -25,6 +27,7 @@ import { useNavigate } from 'react-router-dom'
 const Home = () => {
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const createProjectData = [
         {
@@ -96,7 +99,12 @@ const Home = () => {
 
 
     const handleCreateVideoProject = async (e) => {
-        navigate('/project/video-project')
+        // navigate('/project/video-project')
+        try {
+            dispatch(toggleShowCreateProjectModal(true))
+        } catch (error) {
+            
+        }
     }
 
 
@@ -134,7 +142,9 @@ const Home = () => {
 
                 <div className=' flex flex-col sm:flex-row sm:w-1/2 md:w-3/4 lg:w-full flex-wrap gap-5 items-start justify-start'>
 
-                {createProjectData.map((item, index) => <ProjectCard key={item.id} item = {item} category={{ name: "project_start" }} />)}
+                {createProjectData.map((item, index) => <ProjectCard
+                 handleCreateVideoProject={handleCreateVideoProject}
+                 key={item.id} item = {item} category={{ name: "project_start" }} />)}
                     
 
                 </div>
@@ -202,7 +212,7 @@ const Home = () => {
 
                 <div className='flex flex-col md:flex-row md:w-[90%] lg:w-full flex-wrap  gap-5 items-start'>
 
-                    <div className='w-[438px] flex flex-col items-start gap-5 border rounded-lg shadow-md hover:scale-90 transition-all duration-300 cursor-pointer p-3'>
+                    <div onClick={handleCreateVideoProject} className='w-[438px] flex flex-col items-start gap-5 border rounded-lg shadow-md hover:scale-90 transition-all duration-300 cursor-pointer p-3'>
                         <img className='w-full' src={start_project} alt="" />
 
                         <div className='space-y-1 py-3'>

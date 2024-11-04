@@ -29,6 +29,7 @@ import { useSelector } from "react-redux";
 
 const App = () => {
 	 const showUpdateProfileModal = useSelector((state) => state.auth.showUpdateProfileDialog);
+	 const showCreateProjectModal = useSelector((state) => state.createProject.showCreateProjectModal)
 
 	return (
 		<Router>
@@ -108,13 +109,6 @@ const App = () => {
 						</PrivateRoute>} />
 						
 
-					<Route path = "project/video-project" element = {
-						<PrivateRoute> 
-							<VideoProject />
-						</PrivateRoute>} 
-						/>
-						
-
 					<Route path = "connect-social-media" element = {
 						<PrivateRoute> 
 							<ConnectSocialMedia />
@@ -136,6 +130,7 @@ const App = () => {
 			</Routes>
 
 
+		    {showCreateProjectModal && <VideoProject />}
 			{showUpdateProfileModal && <UpdateProfileModal />}
 			
 		</Router>

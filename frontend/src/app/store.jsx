@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from '../redux/auth/authSlice'
 import scriptReducer from '../redux/script/scriptSlice'
+import createProjectReducer from '../redux/project/createProjectSlice'
 import storage from 'redux-persist/lib/storage'
 import { persistStore, persistReducer } from 'redux-persist';
 
@@ -14,8 +15,12 @@ const persistedReducer = persistReducer(persistConfig, authReducer)
 
 const store = configureStore({
     reducer: {
-        auth: persistedReducer, //Persisted reducer
-        script: scriptReducer, //non persisted reducer
+         //Persisted reducer
+        auth: persistedReducer,
+
+        //non persisted reducer
+        script: scriptReducer, 
+        createProject: createProjectReducer,
 
     },
     middleware: (getDefaultMiddleware) => 

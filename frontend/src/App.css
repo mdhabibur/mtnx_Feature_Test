@@ -27,7 +27,7 @@ body{
 }
 
 .my_h4 {
-    @apply text-xs md:text-xl font-bold
+    @apply text-sm md:text-xl font-bold
 }
 
 .my_h5 {
@@ -48,6 +48,17 @@ body{
 .small_card_des {
     @apply text-[11px] font-normal
 }
+
+.form_label_heading{
+     @apply text-xs md:text-base font-semibold
+}
+
+.form_input_heading{
+    @apply text-xs md:text-base
+}
+
+
+
 
 .active_menu_item {
     @apply bg-gray-300 font-bold
@@ -95,4 +106,18 @@ body{
 
 .motionx_bg_black{
 	@apply bg-slate-800
+}
+
+
+
+/* custom word spacing  */
+.word-space-1 {
+word-spacing: 0.25rem;
+}
+.word-space-2 {
+word-spacing: 0.50rem; 
+}
+
+.word-space-3 {
+word-spacing: 0.75rem;
 }
